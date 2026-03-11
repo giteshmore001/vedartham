@@ -222,6 +222,16 @@ footer{
     color:white;
 }
 
+
+/* ================= JOTIRLINGA IMAGE ================= */
+.jyotirlinga-img{
+width:100%;
+max-width:400px;
+height:auto;
+margin:20px 0;   /* removed auto centering */
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,0.4);
+}
 /* ================= MOBILE RESPONSIVE ================= */
 
 @media(max-width:992px){
@@ -277,4 +287,10 @@ footer{
     nav ul li a{
         font-size:15px;
     }
+	
+	
+.jyotirlinga-img{
+max-width:85%;
+}
+
 }
