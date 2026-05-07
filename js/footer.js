@@ -22,6 +22,16 @@ document.body.insertAdjacentHTML("beforeend", `
 </ul>
 </div>
 
+<!-- IMPORTANT STOTRAS -->
+<div class="footer-section">
+<h3>स्तोत्र</h3>
+<ul>
+<li><a href="kalbhairavasthakam.html#kalabhairavaAshtakam">कालभैरव अष्टकम्</a></li>
+<li><a href="aghorkashtodharan_stotra.html#gurudevDatta">अघोर कष्टोद्धारण स्तोत्र</a></li>
+</ul>
+</div>
+
+
 <!-- Jyotirlinga -->
 <div class="footer-section">
 <h3>ज्योतिर्लिंग</h3>
