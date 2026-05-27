@@ -26,7 +26,7 @@ document.body.insertAdjacentHTML("beforeend", `
 <div class="footer-section">
 <h3>कुंभ मेला</h3>
 <ul>
-<li><a href="Kumbh.html">कुंभ - मुख्य पेज</a></li>
+<li><a href="kumbh.html">कुंभ - मुख्य पेज</a></li>
 <li><a href="nashikkumbhmela.html">नाशिक कुंभ मेला</a></li>
 <li><a href="HotelBooking.html">होटल रूम बुकिंग</a></li>
 </ul>
