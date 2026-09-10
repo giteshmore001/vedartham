@@ -1430,6 +1430,124 @@ font-size:clamp(16px,1.7vw,20px);line-height:1.95;text-align:center;color:#fff5d
 }
 </style>
 
+
+<style id="kalbhairav-spacing-title-fix-v4">
+/* ONLY requested corrections: smaller top gap + fully visible title */
+
+.kalbhairav-page{
+  padding-top:22px !important;
+}
+
+#kalabhairava.kb-card{
+  margin-top:0 !important;
+}
+
+.kb-hero-copy{
+  padding-top:16px !important;
+  overflow:visible !important;
+}
+
+.kb-hero .kb-main-title{
+  display:block !important;
+  margin-top:12px !important;
+  margin-bottom:12px !important;
+  padding:12px 0 16px !important;
+  line-height:1.38 !important;
+  overflow:visible !important;
+  white-space:normal !important;
+}
+
+.kb-hero .kb-badge{
+  margin-top:2px !important;
+}
+
+@media(max-width:991.98px){
+  .kalbhairav-page{
+    padding-top:16px !important;
+  }
+
+  .kb-hero-copy{
+    padding-top:12px !important;
+  }
+
+  .kb-hero .kb-main-title{
+    margin-top:10px !important;
+    padding:10px 0 15px !important;
+    line-height:1.40 !important;
+  }
+}
+
+@media(max-width:575.98px){
+  .kalbhairav-page{
+    padding-top:12px !important;
+  }
+
+  .kb-hero .kb-main-title{
+    font-size:42px !important;
+    line-height:1.42 !important;
+    padding-top:10px !important;
+    padding-bottom:14px !important;
+  }
+}
+</style>
+
+
+<style id="kalbhairav-second-photo-v5">
+/* Temple + actual Lord Kal Bhairav photo */
+.kb-photo-stack{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:18px;
+}
+
+.kb-deity-photo-wrap{
+  background:linear-gradient(145deg,
+    rgba(255,231,157,.88),
+    rgba(255,151,35,.38),
+    rgba(91,25,69,.26)) !important;
+}
+
+.kb-deity-photo{
+  height:300px !important;
+  object-fit:cover !important;
+  object-position:center 38% !important;
+}
+
+/* On wide screens keep the image column elegant without making hero too tall */
+@media(min-width:1200px){
+  .kb-temple-photo{
+    height:285px !important;
+  }
+
+  .kb-deity-photo{
+    height:285px !important;
+  }
+}
+
+@media(max-width:991.98px){
+  .kb-photo-stack{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:14px;
+  }
+
+  .kb-temple-photo,
+  .kb-deity-photo{
+    height:260px !important;
+  }
+}
+
+@media(max-width:650px){
+  .kb-photo-stack{
+    grid-template-columns:1fr;
+  }
+
+  .kb-temple-photo,
+  .kb-deity-photo{
+    height:250px !important;
+  }
+}
+</style>
+
 </head>
 
 <style>
@@ -1671,18 +1789,39 @@ observer.observe(card);
     </div>
 
     <div>
-      <div class="kb-temple-photo-wrap">
-        <img
-          class="kb-temple-photo"
-          src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Kal_Bhairav_temple_Ujjain.jpg?width=1280"
-          alt="उज्जैन स्थित श्री काल भैरव मंदिर"
-          loading="eager">
-        <div class="kb-temple-caption">
-          <strong>श्री काल भैरव मंदिर, उज्जैन</strong>
-          <span>उज्जैन, मध्य प्रदेश</span>
+      <div class="kb-photo-stack">
+
+        <div>
+          <div class="kb-temple-photo-wrap">
+            <img
+              class="kb-temple-photo"
+              src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Kal_Bhairav_temple_Ujjain.jpg?width=1280"
+              alt="उज्जैन स्थित श्री काल भैरव मंदिर"
+              loading="eager">
+            <div class="kb-temple-caption">
+              <strong>श्री काल भैरव मंदिर, उज्जैन</strong>
+              <span>उज्जैन, मध्य प्रदेश</span>
+            </div>
+          </div>
+          <div class="kb-photo-credit">Photo: Utcursch / Wikimedia Commons · CC BY-SA 4.0</div>
         </div>
+
+        <div>
+          <div class="kb-temple-photo-wrap kb-deity-photo-wrap">
+            <img
+              class="kb-temple-photo kb-deity-photo"
+              src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Lord_Kal_Bhairav%2C_Ujjain.jpg?width=1280"
+              alt="उज्जैन के भगवान श्री काल भैरव"
+              loading="lazy">
+            <div class="kb-temple-caption">
+              <strong>भगवान श्री काल भैरव</strong>
+              <span>श्री काल भैरव मंदिर, उज्जैन</span>
+            </div>
+          </div>
+          <div class="kb-photo-credit">Photo: K.vishnupranay / Wikimedia Commons · CC BY-SA 4.0</div>
+        </div>
+
       </div>
-      <div class="kb-photo-credit">Photo: Utcursch / Wikimedia Commons · CC BY-SA 4.0</div>
     </div>
 
   </div>
