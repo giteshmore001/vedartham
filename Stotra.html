@@ -462,34 +462,6 @@ body{
 }
 .ved-value small{color:rgba(255,255,255,.60);line-height:1.6;}
 
-/* TOP BUTTON */
-#goTopBtn{
-  position:fixed;
-  right:22px;
-  bottom:22px;
-  width:50px;
-  height:50px;
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  background:linear-gradient(145deg,#ffe29a,#f4c45e);
-  color:#2e1629;
-  border:1px solid rgba(255,255,255,.55);
-  box-shadow:0 8px 28px rgba(0,0,0,.28),0 0 28px rgba(244,196,94,.30);
-  cursor:pointer;
-  z-index:9999;
-  opacity:0;
-  visibility:hidden;
-  transform:translateY(8px);
-  transition:.25s ease;
-}
-#goTopBtn.show{
-  opacity:1;
-  visibility:visible;
-  transform:none;
-}
-#goTopBtn:hover{transform:translateY(-3px);}
-
 /* Improve existing header/nav without changing content */
 header{
   position:sticky!important;
@@ -1603,7 +1575,22 @@ header nav a,header #navbar a{color:#fff8e9!important;opacity:1!important}
 @media(max-width:850px){.deity-info{grid-template-columns:1fr}.stotra-links{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){#stotra{padding:18px 12px 52px}.stotra-hero,.stotra-deity-card{padding:22px 17px}.stotra-links{grid-template-columns:1fr}.deity-head h2{font-size:25px!important}.stotra-quicknav{justify-content:flex-start}}
 </style>
-</head>
+<style id="vedartham-mobile-nav-css-fix">
+@media (max-width:991.98px){
+ .menu-toggle{display:flex!important;align-items:center!important;justify-content:center!important;cursor:pointer!important;position:relative!important;z-index:10002!important;pointer-events:auto!important}
+ nav{overflow:visible!important}
+ nav>#navbar{display:none!important}
+ nav>#navbar.active{display:flex!important;position:fixed!important;top:72px!important;right:10px!important;left:auto!important;width:min(88vw,340px)!important;max-height:calc(100vh - 84px)!important;overflow-y:auto!important;flex-direction:column!important;align-items:stretch!important;padding:10px!important;background:linear-gradient(160deg,rgba(41,7,42,.985),rgba(31,6,34,.985))!important;border:1px solid rgba(255,205,92,.30)!important;border-top:2px solid rgba(255,194,55,.65)!important;border-radius:0 0 18px 18px!important;box-shadow:0 22px 55px rgba(0,0,0,.42)!important;z-index:10001!important}
+}
+</style>
+
+<style id="vedartham-go-top-style">
+#goTopBtn{position:fixed;right:22px;bottom:22px;width:50px;height:50px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(145deg,#ffe29a,#f4c45e);color:#2e1629;border:1px solid rgba(255,255,255,.55);box-shadow:0 8px 28px rgba(0,0,0,.28),0 0 28px rgba(244,196,94,.30);cursor:pointer;z-index:9999;opacity:0;visibility:hidden;transform:translateY(8px);transition:.25s ease;font-size:25px;font-weight:900;line-height:1}
+#goTopBtn.show{opacity:1;visibility:visible;transform:none}
+#goTopBtn:hover{transform:translateY(-3px)}
+@media(max-width:700px){#goTopBtn{right:16px;bottom:18px;width:46px;height:46px;font-size:23px}}
+</style>
+<style id="stotra-latest-final-fix">@media(max-width:991.98px){body{padding-top:72px!important}header{position:fixed!important;top:0!important;left:0!important;right:0!important;z-index:10000!important;height:72px!important;min-height:72px!important}.menu-toggle{display:flex!important;z-index:10002!important}nav>#navbar{display:none!important}nav>#navbar.active{display:flex!important;position:fixed!important;top:72px!important;right:10px!important;left:auto!important;width:min(88vw,340px)!important;max-height:calc(100vh - 84px)!important;overflow-y:auto!important;flex-direction:column!important;padding:10px!important;background:linear-gradient(160deg,rgba(41,7,42,.985),rgba(31,6,34,.985))!important;border:1px solid rgba(255,205,92,.3)!important;border-radius:0 0 18px 18px!important;z-index:10001!important}}#stotra{scroll-margin-top:100px!important}#stotra h1,#stotra .kb-main-title{line-height:1.35!important;padding:.12em 0 .2em!important;overflow:visible!important}#vedarthamGoTop{position:fixed;right:20px;bottom:22px;width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,215,110,.55);background:linear-gradient(145deg,#6d183c,#32102e);color:#ffe7a0;font-size:25px;font-weight:800;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:9998;opacity:0;visibility:hidden;transform:translateY(12px);transition:.25s;box-shadow:0 8px 25px rgba(0,0,0,.35)}#vedarthamGoTop.show{opacity:1;visibility:visible;transform:none}@media(max-width:700px){#vedarthamGoTop{right:14px;bottom:16px;width:44px;height:44px}}</style></head>
 <style>
 p{
 	color:#2f2f2f;
@@ -1660,7 +1647,7 @@ p{
 </a>
 </div>
 <nav>
-<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+<div class="menu-toggle" role="button" tabindex="0" aria-label="मेनू खोलें" onclick="toggleMenu()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleMenu();}">☰</div>
 <ul id="navbar">
 <li><a href="Jyotirlinga.html#jyotirlinga">ज्योतिर्लिंग</a></li>
 <ul>
@@ -1976,8 +1963,41 @@ observer.observe(card);
 </section>
 <script src="js/footer.js"></script>
 </div>
-<button aria-label="ऊपर जाएँ" id="goTopBtn" type="button"><i class="bi bi-arrow-up"></i></button>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-function toggleMenu(){ const nav=document.getElementById("navbar"); if(nav) nav.classList.toggle("active"); }
-document.querySelectorAll(</script></body></html>
+<script id="vedartham-mobile-nav-fix">
+(function(){
+  window.toggleMenu = function(){
+    var nav = document.getElementById("navbar");
+    if(nav) nav.classList.toggle("active");
+  };
+  document.addEventListener("DOMContentLoaded", function(){
+    var nav = document.getElementById("navbar");
+    if(!nav) return;
+    nav.querySelectorAll("a").forEach(function(link){
+      link.addEventListener("click", function(){ nav.classList.remove("active"); });
+    });
+    document.addEventListener("click", function(e){
+      if(window.innerWidth > 991) return;
+      var toggle = document.querySelector(".menu-toggle");
+      if(nav.classList.contains("active") && !nav.contains(e.target) && !(toggle && toggle.contains(e.target))){
+        nav.classList.remove("active");
+      }
+    });
+  });
+})();
+</script>
+
+<button id="goTopBtn" type="button" aria-label="ऊपर जाएँ" title="ऊपर जाएँ">&#8593;</button>
+
+<script id="vedartham-go-top-script">
+document.addEventListener("DOMContentLoaded",function(){
+  const topBtn=document.getElementById("goTopBtn");
+  if(!topBtn)return;
+  const updateTopBtn=()=>topBtn.classList.toggle("show",window.scrollY>500);
+  updateTopBtn();
+  window.addEventListener("scroll",updateTopBtn,{passive:true});
+  topBtn.addEventListener("click",()=>window.scrollTo({top:0,behavior:"smooth"}));
+});
+</script>
+<button id="vedarthamGoTop" type="button" aria-label="ऊपर जाएँ">↑</button><script id="stotra-latest-nav-js">(function(){function i(){var n=document.getElementById('navbar'),t=document.querySelector('.menu-toggle');if(n&&t){t.onclick=function(e){e.preventDefault();e.stopPropagation();n.classList.toggle('active')};n.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){n.classList.remove('active')})});document.addEventListener('click',function(e){if(n.classList.contains('active')&&!n.contains(e.target)&&!t.contains(e.target))n.classList.remove('active')})}var b=document.getElementById('vedarthamGoTop');if(b){function u(){b.classList.toggle('show',scrollY>350)}addEventListener('scroll',u,{passive:true});u();b.onclick=function(){scrollTo({top:0,behavior:'smooth'})}}}document.readyState==='loading'?document.addEventListener('DOMContentLoaded',i):i()})();</script></body></html>
